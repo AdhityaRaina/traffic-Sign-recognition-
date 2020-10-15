@@ -12,12 +12,14 @@ threshold = 0.75  # PROBABLITY THRESHOLD
 font = cv2.FONT_HERSHEY_SIMPLEX
 ##############################################
 
-# SETUP THE VIDEO CAMERA
+########################## SETUP THE VIDEO CAMERA
 cap = cv2.VideoCapture(1)
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, brightness)
-# IMPORT THE TRANNIED MODEL
+
+
+##########################IMPORT THE TRANNIED MODEL
 pickle_in = open("model_trained.p", "rb")  ## rb = READ BYTE
 model = pickle.load(pickle_in)
 
@@ -130,10 +132,10 @@ def getCalssName(classNo):
 
 while True:
 
-    # READ IMAGE
+########################## READ IMAGE
     success, imgOrignal = cap.read()
 
-    # PROCESS IMAGE
+########################## PROCESS IMAGE
     img = np.asarray(imgOrignal)
     img = cv2.resize(img, (32, 32))
     img = preprocessing(img)
